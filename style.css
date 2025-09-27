@@ -1,18 +1,19 @@
-/* Reset dan Body dengan Background Ungu */
 body {
-    background: linear-gradient(135deg, #5411d1 0%, #6006bb 100%); /* Gradient ungu untuk efek misterius */
-    font-family: "Poppins", Arial, sans-serif; /* Font utama Poppins dengan fallback */
-    margin: 0; /* Hilangkan margin default untuk full viewport */
-    padding: 20px; /* Padding ringan */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Untuk floating dots */
-    overflow: hidden; /* Hilangkan scroll body */
+  background: linear-gradient(135deg, #5411d1 0%, #6006bb 100%);
+  font-family: "Poppins", Arial, sans-serif;
+  padding: 20px;
+  min-height: 100vh;  /* ganti height jadi min-height */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* biar mulai dari atas, bukan ketengah */
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;   /* pastikan bisa scroll */
 }
 html {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y:auto;
+
 }
 /* Fullscreen Loading */
 #loadingPage {
@@ -92,24 +93,24 @@ body:not(.loaded) {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-/* Floating Dots Effect (Bulat-bulat di sekitar layar) */
+/* Floating Dots Effect */
 .floating-dots {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Agar tidak ganggu interaksi */
-    z-index: -1; /* Di belakang semuanya */
+    pointer-events: none; 
+    z-index: -1; 
 }
 
 .dot {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: rgb(255, 255, 255); /* Putih transparan untuk kontras ungu */
-    border-radius: 50%; /* Bentuk bulat */
-    animation: float 6s ease-in-out infinite; /* Animasi mengambang */
+    background: rgb(255, 255, 255);
+    border-radius: 50%; 
+    animation: float 6s ease-in-out infinite;
 }
 
 .dot:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
@@ -162,37 +163,40 @@ body:not(.loaded) {
     width: 100%;
     height: 100%;
     position: relative;
-    z-index: 1; /* Di atas dots */
+    z-index: 1; 
+    scroll-behavior: smooth;
 }
 
-/* Card dengan efek Glassmorphism (putih transparan, kontras dengan ungu) */
+/* Card dengan efek Glassmorphism */
 .card {
-    background: rgba(255, 255, 255, 0.15); /* Background putih semi-transparan untuk glass effect */
-    backdrop-filter: blur(15px); /* Blur latar belakang untuk glass */
-    -webkit-backdrop-filter: blur(15px); /* Dukungan WebKit */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Border halus putih */
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); 
+    border: 1px solid rgba(255, 255, 255, 0.18); 
     border-radius: 15px;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1), /* Shadow ringan untuk depth */
-        inset 0 1px 0 rgba(255, 255, 255, 0.2); /* Inner glow putih untuk glass */
+        0 8px 32px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2); 
     overflow: hidden;
     width: 900px;
-    max-height: 90vh; /* Batasi tinggi card agar tidak overflow layar */
+    max-height: 90vh; 
     display: grid;
     grid-template-columns: 250px 1fr;
-    grid-template-rows: auto auto auto auto 1fr; /* Tambah row untuk play menu */
+    grid-template-rows: auto auto auto auto 1fr; 
     gap: 15px;
     padding: 20px;
+    height: 100%;
+    scroll-behavior: smooth;
 }
 
-/* Bagian FOTO (di kolom pertama, span rows 1-3) */
+
 .photo {
     grid-column: 1;
-    grid-row: 1 / 5; /* Span lebih banyak rows untuk akomodasi play menu */
+    grid-row: 1 / 5; 
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3); /* Overlay gelap ringan untuk kontras teks jika diperlukan */
+    background: rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
     overflow: hidden;
 }
@@ -211,7 +215,7 @@ body:not(.loaded) {
     text-align: center;
     font-weight: bold;
     padding: 15px 0;
-    font-size: 2.5rem; /* Sedikit dikurangi agar tidak terlalu besar */
+    font-size: 2.5rem; 
     margin: 0;
     letter-spacing: 1px; /* Melebar sedikit untuk nama lagu */
 }
@@ -231,10 +235,10 @@ body:not(.loaded) {
     text-align: center;
     font-weight: bold;
     padding: 10px;
-    font-size: 1.2rem; /* Dikurangi untuk konsistensi */
+    font-size: 1.2rem; 
     background: rgba(255, 255, 255, 0.3); /* Glass sub-effect */
     border-radius: 8px;
-    letter-spacing: 0.5px; /* Melebar sedikit */
+    letter-spacing: 0.5px; 
 }
 
 .req {
@@ -272,7 +276,7 @@ body:not(.loaded) {
     gap: 8px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.5px; /* Melebar sedikit */
+    letter-spacing: 0.5px; 
 }
 
 .play-btn:hover {
@@ -282,7 +286,7 @@ body:not(.loaded) {
 }
 
 .play-btn.playing {
-    background: rgba(255, 255, 255, 0.411); /* Ubah warna saat playing */
+    background: rgba(255, 255, 255, 0.411);
 }
 
 .play-btn i {
@@ -293,38 +297,38 @@ body:not(.loaded) {
 .lyrics-display {
     grid-column: 2;
     grid-row: 4;
-    background: rgba(255, 255, 255, 0.342); /* Sesuaikan dengan glass, tapi tetap gelap untuk kontras */
-    color: white; /* Ubah ke putih untuk konsistensi dengan lyrics */
+    background: rgba(255, 255, 255, 0.342); 
+    color: white; 
     text-align: center;
     font-weight: bold;
     padding: 15px;
     font-size: 1.2rem;
     border-radius: 10px;
     margin: 0;
-    letter-spacing: 1px; /* Melebar sedikit */
+    letter-spacing: 1px; 
 }
 #lyricsContainer {
   display: none;          
   opacity: 0;
-  max-height: 0;           /* awalnya tidak ada tinggi */
-  overflow: hidden;        /* biar teks tidak bocor keluar */
+  max-height: 0;           
+  overflow: hidden;        
   transform: translateY(20px);
   transition: 
-    opacity 1s ease, 
-    transform 1s ease, 
-    max-height 1s ease; /* tarik ke bawah */
+    opacity 1s ease-in-out, 
+    transform 1s ease-in-out, 
+    max-height 1s ease-in-out;
 }
 
 #lyricsContainer.show {
   display: block;
   opacity: 1;
-  max-height: 500px;      /* sesuaikan tinggi box maksimal */
+  max-height: 500px;      
   transform: translateY(0);
 }
 .lyrics {
-    grid-column: 1 / 3; /* Full width */
+    grid-column: 1 / 3;
     grid-row: 5;
-    background: rgba(250, 250, 250, 0.13); /* Gelap dengan sedikit transparansi untuk glass feel */
+    background: rgba(250, 250, 250, 0.13); 
     color: white;
     text-align: center;
     font-weight: bold;
@@ -333,22 +337,22 @@ body:not(.loaded) {
     line-height: 1.6;
     border-radius: 15px;
     margin: 0;
-    overflow: hidden; /* Hilangkan scrollbar, konten fit otomatis */
-    height: auto; /* Biarkan expand sesuai konten */
+    overflow: hidden; 
+    height: auto; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Jarak antar baris */
-    letter-spacing: 1.5px; /* Melebar teks lirik (letter-spacing lebih besar) */
-    word-spacing: 2px; /* Tambah spasi antar kata untuk efek melebar */
+    gap: 10px; 
+    letter-spacing: 1.5px; 
+    word-spacing: 2px; 
 }
 
 /* Setiap baris lirik */
 .lyric-line {
-    transition: all 0.5s ease; /* Transisi halus untuk glow dan scale */
-    opacity: 0.7; /* Default sedikit transparan */
+    transition: all 0.5s ease; 
+    opacity: 0.7; 
     margin: 0;
-    position: relative; /* Untuk efek scale tanpa overlap */
-    letter-spacing: inherit; /* Warisi dari parent */
+    position: relative;
+    letter-spacing: inherit; 
     word-spacing: inherit;
     font-size: 23px;
 }
@@ -367,10 +371,10 @@ body:not(.loaded) {
         0 0 20px #a03bff,
         0 0 35px #a03bff,
         0 0 40px #a03bff;
-    transform: scale(1.05); /* Membesar sedikit (5%) */
+    transform: scale(1.05);
     animation: glowPulse 1.5s ease-in-out infinite alternate;
-    font-weight: bolder; /* Lebih bold saat active */
-    z-index: 1; /* Pastikan active di atas yang lain */
+    font-weight: bolder; 
+    z-index: 1;
 }
 
 @keyframes glowPulse {
@@ -390,7 +394,7 @@ body:not(.loaded) {
             0 0 40px #a03bff,
             0 0 50px #a03bff,
             0 0 60px #a03bff ;
-        transform: scale(1.1); /* Membesar lebih saat pulse */
+        transform: scale(1.1); 
     }
 }
 
@@ -399,64 +403,54 @@ body:not(.loaded) {
     color: #a03bff;
 }
 
-/* Responsif sederhana untuk layar kecil */
+/* Responsif untuk layar kecil */
 @media (max-width: 768px) {
-    .card {
-        width: 100%;
-        max-width: 600px;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto 1fr;
-        gap: 10px;
-        padding: 15px;
-        max-height: 95vh;
-    }
-    
-    .photo {
-        grid-row: 1;
-        grid-column: 1;
-        height: 200px; /* Tinggi tetap untuk mobile */
-    }
-    
-    .nama-lagu {
-        grid-row: 2;
-        grid-column: 1;
-        font-size: 2rem;
-        letter-spacing: 0.5px;
-    }
-    
-    .creator-req {
-        grid-row: 3;
-        grid-column: 1;
-        grid-template-columns: 1fr;
-    }
-    
-    .play-menu {
-        grid-row: 4;
-        grid-column: 1;
-    }
-    
-    .lyrics-display {
-        grid-row: 5;
-        grid-column: 1;
-    }
-    
-    .lyrics {
-        grid-row: 6;
-        grid-column: 1;
-        gap: 8px;
-        font-size: 1rem;
-        letter-spacing: 1px; /* Kurangi di mobile */
-        word-spacing: 1px;
-        padding: 20px;
-    }
-    
-    .lyric-line.active {
-        transform: scale(1.03); /* Kurangi scale di mobile agar tidak overflow */
-    }
+  .card {
+    width: 100%;
+    max-width: 600px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    gap: 10px;
+    padding: 15px;
 
-    /* Dots lebih sedikit di mobile */
-    .dot {
-        width: 30px;
-        height: 30px
-    }
+    height: auto;         /* biar ikut isi */
+    max-height: none;     /* jangan dibatasi layar */
+    overflow-y: visible;  /* biar isi nggak terpotong */
+  }
+
+  .photo {
+    grid-row: 1;
+    grid-column: 1;
+    height: 200px;
+  }
+
+  .nama-lagu {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 2rem;
+  }
+
+  .creator-req {
+    grid-row: 3;
+    grid-column: 1;
+    grid-template-columns: 1fr;
+  }
+
+  .play-menu {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+  .lyrics-display {
+    grid-row: 5;
+    grid-column: 1;
+  }
+
+  .lyrics {
+    grid-row: 6;
+    grid-column: 1;
+    gap: 8px;
+    font-size: 1rem;
+    padding: 20px;
+  }
 }
