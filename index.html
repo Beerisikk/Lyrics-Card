@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hilang - Indo Camp</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loadingPage">
+  <div class="loading-content">
+    <div class="loader"></div>
+    <h1>Welcome 🎵</h1>
+    <p>Press  <b> Enter </b>  to continue</p>
+     <button id="enterBtn">Enter Website</button>
+    <span class="watermark">© Rakha</span>
+  </div>
+</div>
+
+  <!-- Floating Dots Background -->
+  <div class="floating-dots">
+    <!-- 30 dot -->
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <!-- Foto -->
+      <div class="photo">
+        <img src="Indocamp.png" alt="Foto Lagu">
+      </div>
+
+      <!-- Nama Lagu -->
+      <div class="nama-lagu">Hilang - Indocamp</div>
+
+      <!-- Creator & Req -->
+      <div class="creator-req">
+        <div class="creator">Creator: <br>1. Chaeroel <br> 2. Shinji Sho</div>
+        <div class="req">Single Project<br>Genre  Hiphop/Rap</div>
+      </div>
+
+      <!-- Tombol Play -->
+      <div class="play-menu">
+        <button id="playBtn" class="play-btn">
+          <i class="fas fa-play"></i>
+          <span>Play Music</span>
+        </button>
+        <audio id="audioPlayer" preload="metadata" loop>
+          <source src="Hilang.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung audio.
+        </audio>
+      </div>
+
+      <!-- Display Lirik -->
+      <div class="lyrics-display">Reff Lyrics</div>
+
+      <!-- Isi Lirik -->
+      <div class="lyrics" id="lyricsContainer">
+        <div class="lyric-line">Kau buat aku jatuh hati pada mu</div>
+        <div class="lyric-line">Ku berharap bisa memutar waktu mu</div>
+        <div class="lyric-line">Kemarin malam kemana dirimu sayang?</div>
+        <div class="lyric-line">Aku lupa kalau kamu hobinya ngilang</div>
+        <div class="lyric-line">Calling calling tetapi tak ada balasan</div>
+        <div class="lyric-line">Dan ternyata aku hanya dipermainkan</div>
+        <div class="lyric-line">Kemarin malam kemana dirimu sayang?</div>
+        <div class="lyric-line">Aku lupa kalau kamu hobinya ngilang</div>
+        <div class="lyric-line">Calling calling tetapi tak ada balasan</div>
+        <div class="lyric-line">Dan ternyata aku hanya dipermainkan</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
